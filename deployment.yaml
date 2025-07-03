@@ -14,6 +14,19 @@ spec:
     spec:
       containers:
       - name: springboot-app
-        image: image: 573509103763.dkr.ecr.us-west-2.amazonaws.com/springboot-app:latest
+        image: 573509103763.dkr.ecr.us-west-2.amazonaws.com/springboot-app:latest
         ports:
         - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-app-service
+spec:
+  selector:
+    app: springboot-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
