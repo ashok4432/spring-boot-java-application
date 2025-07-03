@@ -17,6 +17,19 @@
         <spring.boot.version>3.2.4</spring.boot.version>
     </properties>
 
+    <!-- ✅ Add Spring Boot BOM here -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <!-- Spring Boot Starter Web -->
         <dependency>
@@ -24,7 +37,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Optional: For testing -->
+        <!-- Spring Boot Starter Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -60,4 +73,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
